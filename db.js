@@ -1,31 +1,40 @@
 var mongoose = require('mongoose');
+var schema = mongoose.Schema({
+    name: String,
+    type: String,
+    recipe: Array,
+    price: Number
+    },
+    {collection : 'menu'});
 
+var Menus = mongoose.model('menu', schema);
 
 module.exports = {
     connectDB : function() {
 		// Connect to Mongo DB
-		if (process.env.MONGODB_ADDON_URI) mongoose.connect(process.env.MONGODB_ADDON_URI); //environnement préprod 
-		else mongoose.connect('mongodb://localhost/test'); // local
+		mongoose.connect('mongodb://localhost/pizza'); // local
     },
 
     getVal : function(res) {
-        Values.find(function(err, result) {
+        Menus.find(function(err, result) {
             if (err) {
                 console.log(err);
                 res.send('database error');
                 return
             }
-            var values = {};
+            var menus = {};
             for (var i in result) {
+
                 var val = result[i];
-                values[val["_id"]] = val["value"]
+                console.log(result[i]);
+                menus[val["_id"]] = val["name"]
             }
-            res.render('index', {title: 'NodeJS MongoDB demo', values: values});
+            res.render('index', {title: 'Pizzeria', values: menus});
         });
     },
 
     sendVal : function(val, res) {
-        var request = new Values({value: val});
+        var request = new Values({name: "nom test"});
         request.save(function (err, result) {
             if (err) {
                 console.log(err);

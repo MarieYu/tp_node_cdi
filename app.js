@@ -7,9 +7,6 @@ var bodyParser = require('body-parser');
 
 var mongodb = require('./db');
 
-//var index = require('./routes/index');
-//var users = require('.routes/users');
-
 var routes = require('./routes/routes');
 
 var app = express();
