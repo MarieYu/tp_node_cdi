@@ -26,8 +26,10 @@ module.exports = {
             for (var i in result) {
 
                 var val = result[i];
-                console.log(result[i]);
-                menus[val["_id"]] = val["name"]
+                //console.log(result[i]);
+                menus[val["_id"]] = {name: val["name"], type: val["type"], recipe: val["recipe"], price: val["price"]};
+                //menus[val["_id"]]["price"] = val["price"];
+                console.log(menus[val["_id"]]["recipe"]);
             }
             res.render('index', {title: 'Pizzeria', values: menus});
         });

@@ -3,8 +3,15 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+  //p Welcome to #{title}
 
-  ul
-    each val in values
-      li= val
+  each val in values
+    div(class='page')
+      div(class='container '+val.type)
+        div(class='recipe')
+          p(class='title')= val.name
+          each elem in val.recipe
+            ul
+              li= elem
+        div(class='price')
+          p= val.price+" €"
