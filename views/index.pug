@@ -7,9 +7,11 @@ block content
 
   each val in values
     div(class='page')
-      div(class='container '+val.type)
+      div(class='container')
         div(class='recipe')
-          p(class='title')= val.name
+          div(class='denomination')
+            p(class='title')= val.name
+            div(class='logo '+val.type)
           each elem in val.recipe
             ul
               li= elem

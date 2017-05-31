@@ -27,8 +27,26 @@ h1 {
   border: 1px solid #333333;
   border-radius: 10px;
 }
+.denomination {
+  display: flex;
+  flex-direction: row;
+}
+
 .title {
+  display: inline;
   font-weight: bold;
+}
+div.logo {
+  display: inline-block;
+  margin: 5px;
+  width: 32px;
+  height: 32px;
+}
+div.logo.pizza {
+  background-image: url("../images/pizza-logo.png");
+}
+div.logo.pates {
+  background-image: url("../images/pates-logo.png");
 }
 .recipe {
   width: 75%;
