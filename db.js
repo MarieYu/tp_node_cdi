@@ -24,26 +24,24 @@ module.exports = {
             }
             var menus = {};
             for (var i in result) {
-
                 var val = result[i];
-                //console.log(result[i]);
                 menus[val["_id"]] = {name: val["name"], type: val["type"], recipe: val["recipe"], price: val["price"]};
-                //menus[val["_id"]]["price"] = val["price"];
-                console.log(menus[val["_id"]]["recipe"]);
             }
             res.render('index', {title: 'Pizzeria', values: menus});
         });
     },
 
     sendVal : function(val, res) {
-        var request = new Values({name: "nom test"});
+        console.log("sendVal");
+        var request = new Menus({name: val['title'], type: val["type"], recipe: val["recipe"].split(","), price: val["price"]});
         request.save(function (err, result) {
             if (err) {
                 console.log(err);
                 res.send(JSON.stringify({status: "error", value: "Error, db request failed"}));
                 return
             }
-            res.status(201).send(JSON.stringify({status: "ok", value: result["value"], id: result["_id"]}));
+            res.status(201).send(JSON.stringify({status: "ok", result: result }));
+            res.render('index');
         });
     },
 

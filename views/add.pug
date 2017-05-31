@@ -1,0 +1,47 @@
+extends index
+
+block content
+    form(method='POST' action='/send')
+        label= "Nom du produit"
+            input(
+                id='title'
+                type='text'
+                name='title'
+            )
+        br
+        label= "Type"
+            input(
+                id='type-pizza'
+                type='radio'
+                name='type'
+                value='pizza'
+            )
+            | Pizza
+            input(
+                id='type-pates'
+                type='radio'
+                name='type'
+                value='pates'
+            )
+            | Pâtes
+        br
+        label= "Ingrédients"
+            input(
+                id='recipe'
+                type='text'
+                name='recipe'
+                placeholder='saisir les ingrédients séparés par une virgule'
+            )
+        br
+        label="Prix"
+            input(
+                id='price'
+                type='decimal'
+                name='price'
+            )
+            | €
+        br
+        input(
+            type='submit'
+            value='Ajouter'
+        )

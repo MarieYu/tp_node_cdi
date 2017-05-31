@@ -1,12 +1,14 @@
 extends layout
 
-
 block content
   h1= title
-  //p Welcome to #{title}
 
-  each val in values
-    div(class='page')
+  div(class='page')
+    button#add-btn(class='btn' type='button')
+      p= "Ajouter"
+    //div(class='container add-form')
+    block box
+    each val in values
       div(class='container')
         div(class='recipe')
           div(class='denomination')

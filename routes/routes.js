@@ -12,10 +12,14 @@ router.get('/', function(req, res) {
     mongodb.getVal(res);
 });
 
-/*router.post('/values', function(req, res) {
-    res.setHeader('Content-Type', 'application/json');
-    var val = req.body.value;
+/* GET add page */
+router.get('/add', function(req, res) {
+   res.render('add');
+});
 
+router.post('/send', function(req, res) {
+    res.setHeader('Content-Type', 'application/json');
+    var val = req.body;
     if (val === undefined || val === "") {
         res.send(JSON.stringify({status: "error", value: "Value undefined"}));
         return
@@ -23,7 +27,7 @@ router.get('/', function(req, res) {
     mongodb.sendVal(val, res);
 });
 
-router.delete('/values/:id', function(req, res) {
+/*router.delete('/values/:id', function(req, res) {
     res.setHeader('Content-Type', 'application/json');
     var uuid = req.params.id;
 
