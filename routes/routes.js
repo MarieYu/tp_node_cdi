@@ -28,7 +28,7 @@ router.post('/send', function(req, res) {
 });
 
 /* Delete pizza */
-router.get('/pizza/:id', function(req, res) {
+router.get('/pizza/remove/:id', function(req, res) {
     console.log("delete");
     res.setHeader('Content-Type', 'application/json');
     var uuid = req.params.id;
@@ -36,9 +36,7 @@ router.get('/pizza/:id', function(req, res) {
         res.send(JSON.stringify({status: "error", value: "UUID undefined"}));
         return
     }
-    mongodb.delVal(uuid);
-    //res.send(JSON.stringify({status: "ok", value: uuid}));
-    res.redirect("/");
+    mongodb.delVal(uuid, res);
 });
 
 module.exports = router;

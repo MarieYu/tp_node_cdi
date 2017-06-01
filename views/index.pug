@@ -49,24 +49,10 @@ block content
         | €
         br
         input(
+          id='valider'
           type='submit'
           value='Ajouter'
         )
   div(class= 'page', id= 'list')
-    each val in values
-      div(class='container')
-        div(class='recipe')
-          div(class='denomination')
-            p(class='title')= val.name
-            div(class='logo '+val.type)
-          each elem in val.recipe
-            ul
-              li= elem
-        div(class='price')
-          p= val.price+" €"
-        div(class='fct-btn')
-          a
-            img(src="/images/modify.png")
-        div(class='fct-btn')
-          a(href="/pizza/"+val.id)
-            img(src="/images/trash.png")
+    each result in values
+      include new-element.pug

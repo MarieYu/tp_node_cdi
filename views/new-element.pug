@@ -1,4 +1,4 @@
-div(id='new-container' class='container')
+div(id=result.id class='container')
     div(class='recipe')
         div(class='denomination')
             p(class='title')= result.name
@@ -12,5 +12,6 @@ div(id='new-container' class='container')
         a
             img(src="/images/modify.png")
     div(class='fct-btn')
-        a(href="/pizza/" + result.id)
+        input(type='hidden', value=result.id)
+        a(href="/pizza/remove/"+ result.id class="suppr")
             img(src="/images/trash.png")

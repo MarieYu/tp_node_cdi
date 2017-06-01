@@ -42,20 +42,18 @@ module.exports = {
                 res.send(JSON.stringify({status: "error", value: "Error, db request failed"}));
                 return
             }
-            //res.status(201).send(JSON.stringify({status: "ok", result: result }));
             var html = pug.renderFile('views/new-element.pug', {result: result});
-            console.log(html);
-            //res.send({values: result});
             res.json({html: html});
         });
     },
 
-    delVal : function(id) {
+    delVal : function(id, res) {
         console.log("delVal");
         Menus.remove({_id: id}, function(err) {
             if (err) {
                 console.log(err);
             }
+            res.json({_id: id})
         });
     }
 };
