@@ -6,8 +6,52 @@ block content
   div(class='page')
     button#add-btn(class='btn' type='button')
       p= "Ajouter"
-    //div(class='container add-form')
-    block box
+
+    div(class='container add-form')
+      form(id='form-new' method='POST' action='')
+        label= "Nom du produit"
+        input(
+          id='title'
+          type='text'
+          name='title'
+        )
+        br
+        label= "Type"
+        input(
+          id='type-pizza'
+          type='radio'
+          name='type'
+          value='pizza'
+        )
+        | Pizza
+        input(
+          id='type-pates'
+          type='radio'
+          name='type'
+          value='pates'
+        )
+        | Pâtes
+        br
+        label= "Ingrédients"
+        input(
+          id='recipe'
+          type='text'
+          name='recipe'
+          placeholder='saisir les ingrédients séparés par une virgule'
+        )
+        br
+        label="Prix"
+        input(
+          id='price'
+          type='decimal'
+          name='price'
+        )
+        | €
+        br
+        input(
+          type='submit'
+          value='Ajouter'
+        )
     each val in values
       div(class='container')
         div(class='recipe')
@@ -19,3 +63,6 @@ block content
               li= elem
         div(class='price')
           p= val.price+" €"
+        div(class='fct-btn')
+          a
+            img(src="/images/modify.png")

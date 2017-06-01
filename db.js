@@ -25,7 +25,7 @@ module.exports = {
             var menus = {};
             for (var i in result) {
                 var val = result[i];
-                menus[val["_id"]] = {name: val["name"], type: val["type"], recipe: val["recipe"], price: val["price"]};
+                menus[val["_id"]] = {id: val["_id"], name: val["name"], type: val["type"], recipe: val["recipe"], price: val["price"]};
             }
             res.render('index', {title: 'Pizzeria', values: menus});
         });
@@ -33,7 +33,8 @@ module.exports = {
 
     sendVal : function(val, res) {
         console.log("sendVal");
-        var request = new Menus({name: val['title'], type: val["type"], recipe: val["recipe"].split(","), price: val["price"]});
+        console.log(val);
+        var request = new Menus({name: val['name'], type: val["type"], recipe: val["recipe"].split(","), price: val["price"]});
         request.save(function (err, result) {
             if (err) {
                 console.log(err);
@@ -41,15 +42,16 @@ module.exports = {
                 return
             }
             res.status(201).send(JSON.stringify({status: "ok", result: result }));
-            res.render('index');
         });
     },
 
     delVal : function(id) {
-        Values.remove({_id: id}, function(err) {
+        console.log("delVal");
+        Menus.remove({_id: id}, function(err) {
             if (err) {
                 console.log(err);
             }
         });
+        res.redirect('index');
     }
 };

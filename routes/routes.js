@@ -17,6 +17,7 @@ router.get('/add', function(req, res) {
    res.render('add');
 });
 
+/* POST ajout d'un plat */
 router.post('/send', function(req, res) {
     res.setHeader('Content-Type', 'application/json');
     var val = req.body;
@@ -27,16 +28,18 @@ router.post('/send', function(req, res) {
     mongodb.sendVal(val, res);
 });
 
-/*router.delete('/values/:id', function(req, res) {
+/* Delete pizza */
+router.delete('/pizza/:id', function(req, res) {
+    console.log("delete");
     res.setHeader('Content-Type', 'application/json');
     var uuid = req.params.id;
-
+    console.log(req.params.id);
     if (uuid === undefined || uuid === "") {
         res.send(JSON.stringify({status: "error", value: "UUID undefined"}));
         return
     }
     mongodb.delVal(uuid);
     res.send(JSON.stringify({status: "ok", value: uuid}));
-});*/
+});
 
 module.exports = router;

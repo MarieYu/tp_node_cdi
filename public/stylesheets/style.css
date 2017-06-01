@@ -71,6 +71,7 @@ div.logo.pates {
   line-height: 35px;
 }
 
+/*Ajout de pizza et formulaire*/
 .btn {
   width: 150px;
   height: 30px;
@@ -86,4 +87,14 @@ div.logo.pates {
 .btn > p {
   margin: 0;
   line-height: 30px
+}
+
+div.container.add-form {
+  display: none;
+}
+
+/* Modification*/
+.fct-btn {
+  margin: 5px;
+  cursor: pointer;
 }
