@@ -1,0 +1,14 @@
+//Created by Marie on 01/06/2017.
+div(id='new-container' class='container')
+    div(class='recipe')
+        div(class='denomination')
+            p(class='title')= result.name
+            div(class='logo '+result.type)
+        each elem in result.recipe
+            ul
+                li= elem
+    div(class='price')
+        p= result.price+" €"
+    div(class='fct-btn')
+        a
+            img(src="/images/modify.png")

@@ -41,7 +41,8 @@ module.exports = {
                 res.send(JSON.stringify({status: "error", value: "Error, db request failed"}));
                 return
             }
-            res.status(201).send(JSON.stringify({status: "ok", result: result }));
+            //res.status(201).send(JSON.stringify({status: "ok", result: result }));
+            res.send({values: result});
         });
     },
 
