@@ -28,17 +28,17 @@ router.post('/send', function(req, res) {
 });
 
 /* Delete pizza */
-router.delete('/pizza/:id', function(req, res) {
+router.get('/pizza/:id', function(req, res) {
     console.log("delete");
     res.setHeader('Content-Type', 'application/json');
     var uuid = req.params.id;
-    console.log(req.params.id);
     if (uuid === undefined || uuid === "") {
         res.send(JSON.stringify({status: "error", value: "UUID undefined"}));
         return
     }
     mongodb.delVal(uuid);
-    res.send(JSON.stringify({status: "ok", value: uuid}));
+    //res.send(JSON.stringify({status: "ok", value: uuid}));
+    res.redirect("/");
 });
 
 module.exports = router;

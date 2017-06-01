@@ -18,7 +18,8 @@ jQuery(document).ready( function($) {
             'url': '/send',
             'data': data,
             'success': function(data) {
-                $("#list").append(
+                $("#list").append(data.html);
+                /*$("#list").append(
                     $("<div class='container'>" +
                         "<div class='recipe'>" +
                             "<div class='denomination'>" +
@@ -32,7 +33,7 @@ jQuery(document).ready( function($) {
                     "</div>"));
                 for(var ii=0; ii<data.values["recipe"].length; ii++){
                     $("#ingr-ctn").append($("<li>"+data.values["recipe"][ii]+"</li>"))
-                }
+                }*/
             }
         });
     });

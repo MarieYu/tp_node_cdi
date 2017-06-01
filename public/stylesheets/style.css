@@ -22,9 +22,6 @@ h1 {
   align-items: center;
   width: 100%;
 }
-#new-container {
-  display: none;
-}
 .container {
   display: flex;
   flex-direction: row;
@@ -63,6 +60,7 @@ div.logo.pates {
 .price {
   width: 15%;
   height: 35px;
+  margin: 5px;
   border-radius: 10px;
   background-color: teal;
   text-align: center;

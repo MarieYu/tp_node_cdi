@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var pug = require('pug');
 var schema = mongoose.Schema({
     name: String,
     type: String,
@@ -34,7 +35,7 @@ module.exports = {
     sendVal : function(val, res) {
         console.log("sendVal");
         console.log(val);
-        var request = new Menus({name: val['name'], type: val["type"], recipe: val["recipe"].split(","), price: val["price"]});
+        var request = new Menus({id: val["_id"], name: val['name'], type: val["type"], recipe: val["recipe"].split(","), price: val["price"]});
         request.save(function (err, result) {
             if (err) {
                 console.log(err);
@@ -42,7 +43,10 @@ module.exports = {
                 return
             }
             //res.status(201).send(JSON.stringify({status: "ok", result: result }));
-            res.send({values: result});
+            var html = pug.renderFile('views/new-element.pug', {result: result});
+            console.log(html);
+            //res.send({values: result});
+            res.json({html: html});
         });
     },
 
@@ -53,6 +57,5 @@ module.exports = {
                 console.log(err);
             }
         });
-        res.redirect('index');
     }
 };
