@@ -9,50 +9,52 @@ block content
 
     div(class='container add-form')
       form(id='form-new' method='POST' action='')
-        label= "Nom du produit"
-        input(
-          id='title'
-          type='text'
-          name='title'
-        )
-        br
-        label= "Type"
-        input(
-          id='type-pizza'
-          type='radio'
-          name='type'
-          value='pizza'
-        )
-        | Pizza
-        input(
-          id='type-pates'
-          type='radio'
-          name='type'
-          value='pates'
-        )
-        | Pâtes
-        br
-        label= "Ingrédients"
-        input(
-          id='recipe'
-          type='text'
-          name='recipe'
-          placeholder='saisir les ingrédients séparés par une virgule'
-        )
-        br
-        label="Prix"
-        input(
-          id='price'
-          type='decimal'
-          name='price'
-        )
-        | €
-        br
-        input(
-          id='valider'
-          type='submit'
-          value='Ajouter'
-        )
+        div.champ
+          label= "Nom du produit"
+          input(
+            id='title'
+            type='text'
+            name='title'
+          )
+        div.champ
+          label= "Type"
+          input(
+            id='type-pizza'
+            type='radio'
+            name='type'
+            value='pizza'
+          )
+          | Pizza
+          input(
+            id='type-pates'
+            type='radio'
+            name='type'
+            value='pates'
+          )
+          | Pâtes
+        div.champ
+          label= "Ingrédients"
+          input(
+            id='recipe'
+            type='text'
+            name='recipe'
+            placeholder='saisir les ingrédients séparés par une virgule'
+          )
+        div.champ
+          label="Prix"
+          input(
+            id='price'
+            type='decimal'
+            name='price'
+          )
+          | €
+        div.champ
+          input(
+            id='valider'
+            class='btn'
+            type='submit'
+            value='valider'
+          )
   div(class= 'page', id= 'list')
     each result in values
       include new-element.pug

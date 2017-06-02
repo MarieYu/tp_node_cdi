@@ -73,6 +73,27 @@ div.logo.pates {
 }
 
 /*Ajout de pizza et formulaire*/
+#form-new {
+  margin: 7px;
+}
+#form-new .champ {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 7px;
+}
+#form-new label {
+  min-width: 40%;
+}
+#form-new input[type=text], #form-new input[type=decimal] {
+  flex-grow: 1;
+}
+#form-new .champ:last-child {
+  justify-content: center;
+}
+#form-new .champ:last-child input{
+  flex-grow: n0
+}
 .btn {
   width: 150px;
   height: 30px;
@@ -92,6 +113,7 @@ div.logo.pates {
 
 div.container.add-form {
   display: none;
+  padding: 10px;
 }
 
 /* Modification*/
